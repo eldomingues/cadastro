@@ -13,7 +13,6 @@ public class PessoaDao {
 	
 	public void addPessoa(Pessoa pessoa) {
 		Session s = HibernateUtil.getSessionFactory().openSession();
-//		Session s = HibernateUtil.getSessionFactory().getCurrentSession();
 		s.beginTransaction();
 		s.save(pessoa);
 		s.getTransaction().commit();
@@ -25,7 +24,7 @@ public class PessoaDao {
 		List<Pessoa> list = new ArrayList<Pessoa>();
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		s.beginTransaction();
-		list = s.createQuery("from.pessoa").list();
+		list = s.createQuery("from pessoa").list();
 		s.getTransaction().commit();
 		s.close();
 		return list;
